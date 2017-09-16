@@ -23,3 +23,14 @@ docker-compose run -p 3000:3000 --rm web npm run serve
 ```
 
 then go to `http://localhost:3000`
+
+## Tech
+
+#### Client
+
+- React
+- Immutable JS (https://facebook.github.io/immutable-js/)
+
+#### Server
+
+- Node.js

@@ -9,8 +9,12 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.14.0",
+    "immutable": "^3.8.1",
+    "prop-types": "^15.5.10",
     "react": "^15.3.2",
+    "react-beautiful-dnd": "^2.2.4",
     "react-dom": "^15.3.2",
+    "react-immutable-proptypes": "^2.1.0",
     "webpack": "^1.13.2",
     "webpack-dev-middleware": "^1.8.4",
     "webpack-hot-middleware": "^2.13.0"
@@ -33,6 +37,7 @@
     "eslint-plugin-import": "^1.16.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.4.1",
+    "immutable-devtools": "^0.0.7",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "style-loader": "^0.13.1"
