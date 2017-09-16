@@ -1,0 +1,6 @@
+.DS_Store
+npm-debug.log
+.idea/
+.yarnclean
+client/dist/
+node_modules/

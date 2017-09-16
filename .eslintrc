@@ -1,0 +1,132 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "extends": "airbnb",
+  "plugins": [
+    "react"
+  ],
+  "globals": {
+    "__DEV__": false
+  },
+  "rules": {
+    "brace-style": [
+      "error",
+      "1tbs",
+      {
+        "allowSingleLine": true
+      }
+    ],
+    "curly": [
+      "error",
+      "all"
+    ],
+    "indent": [
+      "error",
+      4,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "linebreak-style": [
+      "off"
+    ],
+    "semi": [
+      "error",
+      "never"
+    ],
+    "object-curly-spacing": [
+      "error",
+      "never"
+    ],
+    "no-bitwise": [
+      "warn"
+    ],
+    "no-multi-assign": [
+      "warn"
+    ],
+    "prefer-template": [
+      "off"
+    ],
+    "arrow-body-style": [
+      "off"
+    ],
+    "global-require": [
+      "off"
+    ],
+    "no-plusplus": [
+      "off"
+    ],
+    "new-cap": [
+      "off"
+    ],
+    "func-names": [
+      "off"
+    ],
+    "consistent-return": [
+      "off"
+    ],
+    "max-len": [
+      "off"
+    ],
+    "strict": [
+      "off"
+    ],
+    "radix": [
+      "off"
+    ],
+    "no-underscore-dangle": [
+      "off"
+    ],
+    "no-use-before-define": [
+      "off"
+    ],
+    "no-prototype-builtins": [
+      "off"
+    ],
+    "import/prefer-default-export": [
+      "off"
+    ],
+    "import/no-dynamic-require": [
+      "off"
+    ],
+    "import/no-extraneous-dependencies": [
+      "off"
+    ],
+    "no-param-reassign": [
+      "warn"
+    ],
+    "no-console": [
+      "warn"
+    ],
+    "react/forbid-prop-types": [
+      "off"
+    ],
+    "react/jsx-filename-extension": [
+      "off"
+    ],
+    "react/jsx-space-before-closing": [
+      "error",
+      "never"
+    ],
+    "react/jsx-indent": [
+      "error",
+      4
+    ],
+    "react/jsx-indent-props": [
+      "error",
+      4
+    ],
+    "react/prefer-stateless-function": [
+      "warn"
+    ],
+    "jsx-a11y/anchor-has-content": [
+      "off"
+    ],
+    "jsx-a11y/label-has-for": [
+      "off"
+    ]
+  }
+}

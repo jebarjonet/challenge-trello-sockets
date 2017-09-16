@@ -1,0 +1,11 @@
+version: '2'
+services:
+  web:
+    restart: unless-stopped
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+    volumes:
+      - .:/home/app
