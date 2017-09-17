@@ -14,9 +14,6 @@ module.exports = {
         publicPath: '/',
     },
     plugins: [
-        new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-        }),
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.NoErrorsPlugin(),
         new webpack.HotModuleReplacementPlugin(),
@@ -37,11 +34,15 @@ module.exports = {
             },
             {
                 test: /\.less$/,
-                loaders: [
-                    'style',
-                    'css',
-                    'less',
-                ],
+                loaders: ['style', 'css', 'less'],
+            },
+            {
+                test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                loader: 'url-loader?limit=10000&mimetype=application/font-woff',
+            },
+            {
+                test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                loader: 'file-loader',
             },
         ],
     },

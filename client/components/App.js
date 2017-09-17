@@ -1,6 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import ImmutablePropTypes from 'react-immutable-proptypes'
 import {fromJS} from 'immutable'
 import {DragDropContext} from 'react-beautiful-dnd'
 
@@ -18,7 +16,7 @@ export default class App extends React.Component {
         lists: fromJS([
             {
                 id: 'contacted',
-                title: 'Contacté',
+                title: 'Contactés',
                 items: getApplicants(3),
             },
             {

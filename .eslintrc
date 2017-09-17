@@ -47,6 +47,9 @@
     "no-multi-assign": [
       "warn"
     ],
+    "no-mixed-operators": [
+      "warn"
+    ],
     "prefer-template": [
       "off"
     ],
