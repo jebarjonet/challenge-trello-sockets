@@ -6,7 +6,7 @@ import {render} from 'react-dom'
 import App from './components/App'
 import './main.less'
 
-// enable immutable js Chrome Extension debugger
+// enable Immutable JS Chrome Extension debugger
 installDevTools(immutable)
 
 render(

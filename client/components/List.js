@@ -26,9 +26,14 @@ export default class List extends React.Component {
                     {
                         (provided) => {
                             return (
-                                <div ref={provided.innerRef}>
-                                    {list.get('title')}
-                                    <div className={css.list}>
+                                <div
+                                    className={css.wrapper}
+                                >
+                                    {list.get('title')} ({list.get('items').size})
+                                    <div
+                                        className={css.list}
+                                        ref={provided.innerRef}
+                                    >
                                         {
                                             list.get('items').map((item) => {
                                                 return (

@@ -30,7 +30,9 @@ then go to `http://localhost:3000`
 
 - React
 - Immutable JS (https://facebook.github.io/immutable-js/)
+- Socket.io
 
 #### Server
 
 - Node.js
+- Socket.io

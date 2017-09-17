@@ -1,4 +1,5 @@
 import React from 'react'
+import classNames from 'classnames'
 import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import {fromJS} from 'immutable'
@@ -21,11 +22,13 @@ export default class Item extends React.Component {
         return (
             <Draggable draggableId={item.get('id')}>
                 {
-                    (provided) => {
+                    (provided, snapshot) => {
                         return (
                             <div>
                                 <div
-                                    className={css.item}
+                                    className={classNames(css.item, {
+                                        [css.dragging]: snapshot.isDragging,
+                                    })}
                                     style={provided.draggableStyle}
                                     ref={provided.innerRef}
                                     {...provided.dragHandleProps}

@@ -4,8 +4,10 @@ import ImmutablePropTypes from 'react-immutable-proptypes'
 import {fromJS} from 'immutable'
 import {DragDropContext} from 'react-beautiful-dnd'
 
-import {getApplicants} from '../data'
-import * as utils from '../utils'
+import socket from '../services/socket'
+
+import {getApplicants} from '../services/data'
+import * as utils from '../services/utils'
 
 import List from './List'
 
@@ -15,9 +17,14 @@ export default class App extends React.Component {
     state = {
         lists: fromJS([
             {
+                id: 'contacted',
+                title: 'Contacté',
+                items: getApplicants(3),
+            },
+            {
                 id: 'meet',
                 title: 'A rencontrer',
-                items: getApplicants(3),
+                items: [],
             },
             {
                 id: 'interview',
@@ -27,6 +34,19 @@ export default class App extends React.Component {
         ]),
     }
 
+    componentDidMount() {
+        // move applicant to another list/index (from socket)
+        socket.on('move-applicant', (payload) => {
+            return this.setState({
+                lists: utils.moveListItem(this.state.lists, payload),
+            })
+        })
+    }
+
+    /**
+     * Triggered when dropping dragged item
+     * @param result
+     */
     onDragEnd = (result) => {
         const {source, destination} = result
         const {lists} = this.state
@@ -36,24 +56,20 @@ export default class App extends React.Component {
             return
         }
 
-        const previousListIndex = lists.findIndex(list => list.get('id') === source.droppableId)
-        const previousList = lists.get(previousListIndex)
-
-        // moved in same list
-        if (source.droppableId === destination.droppableId) {
-            const items = utils.moveElement(previousList.get('items'), source.index, destination.index)
-            this.setState({
-                lists: lists.setIn([previousListIndex, 'items'], items),
-            })
+        // moved to another list/index
+        const payload = {
+            fromListId: source.droppableId,
+            itemId: result.draggableId,
+            toListId: destination.droppableId,
+            toIndex: destination.index,
         }
 
-        // moved to different list
-        const nextListIndex = lists.findIndex(list => list.get('id') === destination.droppableId)
-        const movedItem = previousList.getIn(['items', source.index])
-        this.setState({
-            lists: lists
-                .updateIn([previousListIndex, 'items'], items => items.splice(source.index, 1))
-                .updateIn([nextListIndex, 'items'], items => items.splice(destination.index, 0, movedItem)),
+        // send the move event to server
+        socket.emit('move-applicant', payload)
+
+        // immediately apply the changes on client
+        return this.setState({
+            lists: utils.moveListItem(lists, payload),
         })
     }
 

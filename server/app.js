@@ -10,6 +10,9 @@ const webpackConfig = require('../webpack.config')
 const init = require('./init')
 
 const app = express()
+const http = require('http').Server(app)
+const io = require('socket.io')(http)
+
 const compiler = webpack(webpackConfig)
 
 // configure Webpack hot reload
@@ -21,8 +24,8 @@ app.use(webpackDevMiddleware(compiler, {
 app.use(webpackHotMiddleware(compiler))
 
 // server logic
-init(app)
+init(app, io)
 
-app.listen(3000, () => {
+http.listen(3000, () => {
     console.log('Listening on http://localhost:3000')
 })
