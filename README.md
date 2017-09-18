@@ -1,6 +1,6 @@
-# WTTJ challenge
+# Trello sockets challenge
 
-Here is the result of the Welcome to the Jungle challenge.
+Here is the result of a technical React/Node.js challenge.
 It consists of a Trello-like UI using websockets for real time interactions.
 
 The app runs in a Docker container and relies on Docker Compose for building and running the container.
@@ -36,3 +36,5 @@ then go to `http://localhost:3000`
 
 - Node.js
 - Socket.io
+
+![Animation](animation.gif?raw=true)

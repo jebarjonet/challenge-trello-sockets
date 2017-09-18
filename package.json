@@ -1,5 +1,5 @@
 {
-  "name": "challenge-wttj",
+  "name": "challenge-trello-sockets",
   "version": "1.0.0",
   "scripts": {
     "lint": "eslint --quiet .",
